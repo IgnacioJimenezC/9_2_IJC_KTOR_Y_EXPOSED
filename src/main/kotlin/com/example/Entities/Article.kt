@@ -1,7 +1,5 @@
-package com.example
+package com.example.Entities
 
-
-import java.util.concurrent.atomic.AtomicInteger
 
 import org.jetbrains.exposed.sql.*
 

@@ -1,6 +1,7 @@
 package com.example.DAO
 
-import com.example.Articles
+import com.example.Entities.Articles
+import com.example.Entities.Campos
 import kotlinx.coroutines.*
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.*
@@ -13,6 +14,7 @@ object DatabaseFactory {
         val database = Database.connect(jdbcURL, driverClassName,"user","user")
         transaction(database) {
             SchemaUtils.create(Articles)
+            SchemaUtils.create(Campos)
         }
     }
     suspend fun <T> dbQuery(block: suspend () -> T): T =

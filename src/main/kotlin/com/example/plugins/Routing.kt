@@ -1,17 +1,12 @@
 package com.example.plugins
 
-import com.example.Article
-import com.example.Articles
-import com.example.DAO.DAOFacadeImpl.*
 import com.example.DAO.dao
 import io.ktor.server.routing.*
 import io.ktor.server.response.*
 import io.ktor.server.application.*
 import io.ktor.server.freemarker.*
-import io.ktor.server.http.content.*
 import io.ktor.server.request.*
 import io.ktor.server.util.*
-import java.io.File
 
 fun Application.configureRouting() {
     routing {
@@ -56,9 +51,6 @@ fun Application.configureRouting() {
                         call.respondRedirect("/articles")
                     }
                 }
-            }
-            static("/static"){
-                resources("files")
             }
         }
     }

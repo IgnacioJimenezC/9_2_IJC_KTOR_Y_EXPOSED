@@ -1,8 +1,8 @@
 package com.example.DAO
 
-import com.example.Article
+import com.example.Entities.Article
 
-interface DAOFacade {
+interface DAOArticle {
     suspend fun allArticles(): List<Article>
     suspend fun article(id: Int): Article?
     suspend fun addNewArticle(title: String, body: String): Article?

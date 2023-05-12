@@ -1,13 +1,13 @@
 package com.example.DAO
 
-import com.example.Article
-import com.example.Articles
+import com.example.Entities.Article
+import com.example.Entities.Articles
 import com.example.DAO.DatabaseFactory.dbQuery
 import kotlinx.coroutines.runBlocking
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 
-class DAOFacadeImpl : DAOFacade {
+class DAOFacadeImpl : DAOArticle {
 
     private fun resultRowToArticle(row: ResultRow) = Article(
         id = row[Articles.id],
@@ -45,7 +45,7 @@ class DAOFacadeImpl : DAOFacade {
         Articles.deleteWhere { Articles.id eq id } > 0
     }
 }
-val dao: DAOFacade = DAOFacadeImpl().apply {
+val dao: DAOArticle = DAOFacadeImpl().apply {
     runBlocking {
         if(allArticles().isEmpty()) {
             addNewArticle("The drive to develop!", "...it's what keeps me going.")
