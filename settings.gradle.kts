@@ -1,0 +1,1 @@
+rootProject.name = "com.example.ktor_pero_a_la_tercera_va_la_vencida"
