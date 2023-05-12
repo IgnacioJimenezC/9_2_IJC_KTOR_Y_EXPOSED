@@ -53,5 +53,8 @@ fun Application.configureRouting() {
                 }
             }
         }
+        route("/section"){
+            //TODO() replicar lo de article para section
+        }
     }
 }
