@@ -1,6 +1,7 @@
 package com.example.plugins
 
 import com.example.DAO.dao
+import com.example.DAO.daoCampo
 import io.ktor.server.routing.*
 import io.ktor.server.response.*
 import io.ktor.server.application.*
@@ -12,7 +13,7 @@ fun Application.configureRouting() {
     routing {
         // ...
         get("/") {
-            call.respondRedirect("articles")
+            call.respondRedirect("section")
         }
         route("articles") {
             get {
@@ -54,7 +55,9 @@ fun Application.configureRouting() {
             }
         }
         route("/section"){
-            //TODO() replicar lo de article para section
+            get {
+                call.respond(FreeMarkerContent("sectionTemplates/index.ftl", mapOf("campos" to daoCampo.obtenerCampos())))
+            }
         }
     }
 }
