@@ -13,7 +13,7 @@ fun Application.configureRouting() {
     routing {
         // ...
         get("/") {
-            call.respondRedirect("section")
+            call.respondRedirect("articles")
         }
         route("articles") {
             get {
