@@ -54,9 +54,9 @@ fun Application.configureRouting() {
                 }
             }
         }
-        route("/section") {
+        route("campo") {
             get {
-                  call.respond(FreeMarkerContent("sectionTemplates/index.ftl", mapOf("section" to daoCampos.obtenerCampos())))
+                  call.respond(FreeMarkerContent("indexCampo.ftl", model = mapOf("dolor" to daoCampos.obtenerCampos())))
                 }
             }
         }
