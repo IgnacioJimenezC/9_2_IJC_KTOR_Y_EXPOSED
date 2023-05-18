@@ -14,5 +14,6 @@
     <hr>
     <p>
         <a href="/articles/new">Create article</a>
+        <a href="/campo">Campos</a>
     </p>
 </@layout.header>

@@ -58,6 +58,18 @@ fun Application.configureRouting() {
             get {
                   call.respond(FreeMarkerContent("indexCampo.ftl", model = mapOf("dolor" to daoCampos.obtenerCampos())))
                 }
+            get("new") {
+                call.respond(FreeMarkerContent("newCampo.ftl", model = null))
+            }
+            post {
+                val formParameters = call.receiveParameters()
+                val name = formParameters.getOrFail("name")
+                val description = formParameters.getOrFail("description")
+                val sectionID = formParameters.getOrFail("sectionID")
+                val order = formParameters.getOrFail("order").toInt()
+                val campo = daoCampos.anadirCampo(name, description,sectionID,order)
+                call.respondRedirect("/campo/${campo?.id}")
+            }
             }
         }
     }

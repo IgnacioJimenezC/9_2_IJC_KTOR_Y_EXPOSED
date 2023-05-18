@@ -13,6 +13,6 @@
     </#list>
     <hr>
     <p>
-        al borde de la locura
+        <a href="/campo/new">Añadir campos</a>
     </p>
 </@layout.header>

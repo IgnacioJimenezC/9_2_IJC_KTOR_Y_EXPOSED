@@ -2,12 +2,14 @@
 <@layout.header>
     <div>
         <h3>Create article</h3>
-        <form action="/articles" method="post">
+        <form action="/campo" method="post">
             <p>
-                <input type="text" name="title">
+                <input type="text" name="name">
             </p>
             <p>
-                <textarea name="body"></textarea>
+                <textarea name="description"></textarea><br>
+                <input type="text" name="sectionID">
+                <input type="order" type="number">
             </p>
             <p>
                 <input type="submit">
