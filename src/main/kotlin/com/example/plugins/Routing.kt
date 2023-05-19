@@ -59,13 +59,13 @@ fun Application.configureRouting() {
                   call.respond(FreeMarkerContent("indexCampo.ftl", model = mapOf("dolor" to daoCampos.obtenerCampos())))
                 }
             get("new") {
-                call.respond(FreeMarkerContent("newCampo.ftl", model = null))
+                call.respond(FreeMarkerContent("newCampo.ftl", model = mapOf("artiCULOS" to dao.allArticles())))
             }
             post {
                 val formParameters = call.receiveParameters()
                 val name = formParameters.getOrFail("name")
                 val description = formParameters.getOrFail("description")
-                val sectionID = formParameters.getOrFail("sectionID")
+                val sectionID = formParameters.getOrFail("sectionID").toInt()
                 val order = formParameters.getOrFail("order").toInt()
                 val campo = daoCampos.anadirCampo(name, description,sectionID,order)
                 call.respondRedirect("/campo/${campo?.id}")
@@ -85,7 +85,7 @@ fun Application.configureRouting() {
                     "update" -> {
                         val name = formParameters.getOrFail("name")
                         val description = formParameters.getOrFail("description")
-                        val sectionID = formParameters.getOrFail("sectionID")
+                        val sectionID = formParameters.getOrFail("sectionID").toInt()
                         val order = formParameters.getOrFail("order").toInt()
                         daoCampos.editarCampo(id, name, description,sectionID,order)
                         call.respondRedirect("/campo/$id")

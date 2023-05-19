@@ -11,10 +11,10 @@
                 <textarea name="description">${campo.description}</textarea>
             </p>
             <p>
-                <input type="number" name="order">
+                Order: <input type="number" name="order">
             </p>
             <p>
-                <input type="text" name="sectionID">
+                SectionID: <input type="text" name="sectionID">
             </p>
             <p>
                 <input type="submit" name="_action" value="update">

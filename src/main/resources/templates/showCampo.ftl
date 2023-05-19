@@ -8,6 +8,12 @@
         <p>
             ${campo.description}
         </p>
+        <p>
+            Orden: ${campo.order}
+        </p>
+        <p>
+            SectionID: ${campo.sectionId}
+        </p>
         <hr>
         <p>
             <a href="/campo/${campo.id}/edit">Edit campo</a>

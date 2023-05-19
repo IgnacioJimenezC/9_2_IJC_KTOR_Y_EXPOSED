@@ -1,3 +1,4 @@
+<#-- @ftlvariable name="campos" type="kotlin.collections.List<com.example.Entities.Campos>" -->
 <#import "_layout.ftl" as layout />
 <@layout.header>
     <div>
@@ -12,6 +13,7 @@
             <p>
                 <input type="submit">
             </p>
+
         </form>
     </div>
 </@layout.header>

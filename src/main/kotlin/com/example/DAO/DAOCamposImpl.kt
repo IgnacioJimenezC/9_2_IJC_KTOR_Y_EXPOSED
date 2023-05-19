@@ -28,7 +28,7 @@ class DAOCamposImpl : DAOCampos {
                 .singleOrNull()
     }
 
-    override suspend fun anadirCampo(nombreCampo:String,descripcion:String,sectionID:String,order:Int): Campo? = dbQuery {
+    override suspend fun anadirCampo(nombreCampo:String,descripcion:String,sectionID:Int,order:Int): Campo? = dbQuery {
         val insertStatement = Campos.insert {
             it[Campos.name] = nombreCampo
             it[Campos.description] = descripcion
@@ -38,7 +38,7 @@ class DAOCamposImpl : DAOCampos {
         insertStatement.resultedValues?.singleOrNull()?.let(::resultRowToCampo)
     }
 
-    override suspend fun editarCampo(id: Int,nombreCampo:String,descripcion:String,sectionID:String,order:Int): Boolean = dbQuery {
+    override suspend fun editarCampo(id: Int,nombreCampo:String,descripcion:String,sectionID:Int,order:Int): Boolean = dbQuery {
         Campos.update({ Campos.id eq id }) {
             it[Campos.name] = nombreCampo
             it[Campos.description] = descripcion
@@ -54,7 +54,7 @@ class DAOCamposImpl : DAOCampos {
 val daoCampos: DAOCampos = DAOCamposImpl().apply {
     runBlocking {
         if(obtenerCampos().isEmpty()) {
-            anadirCampo("jijiji", "jojojo.","jeje",0)
+            anadirCampo("jijiji", "jojojo.",1,0)
         }
     }
 }

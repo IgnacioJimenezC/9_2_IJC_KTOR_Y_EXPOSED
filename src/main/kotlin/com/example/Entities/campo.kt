@@ -1,12 +1,12 @@
 package com.example.Entities
 import org.jetbrains.exposed.sql.*
-data class Campo(val id:String,val name:String,val description:String,val sectionId:String,val order:Int)
+data class Campo(val id:String,val name:String,val description:String,val sectionId:Int,val order:Int)
 
 object Campos:Table(){
     val id = integer("id").autoIncrement()
     val name = varchar("name",1024)
     val description = varchar("description",256)
-    val sectionId = varchar("sectionID",32) //futura fk de una entidad section
+    val sectionId = integer("sectionID").references(Articles.id)
     val order = integer("order")
     override val primaryKey = PrimaryKey(id)
 }

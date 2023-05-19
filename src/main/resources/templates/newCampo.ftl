@@ -1,3 +1,4 @@
+<#-- @ftlvariable name="artiCULOS" type="kotlin.collections.List<com.example.Entities.Articles>" -->
 <#import "_layout.ftl" as layout />
 <@layout.header>
     <div>
@@ -10,10 +11,11 @@
                 <textarea name="description"></textarea><br>
             </p>
 
-            <p>
-            <input type="text" name="sectionID">
-            </p>
-
+            <select name="seccionID">
+                <#list artiCULOS as artiCULO>
+                    <option value="${artiCULO.id}">${artiCULO.title}</option>
+                </#list>
+            </select>
             <p>
                 <input name="order" type="number">
             </p>
