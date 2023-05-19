@@ -1,16 +1,16 @@
-<#-- @ftlvariable name="campos" type="com.example.Entities.Campos" -->
+<#-- @ftlvariable name="campo" type="com.example.Entities.Campos" -->
 <#import "_layout.ftl" as layout />
 <@layout.header>
     <div>
         <h3>
-            ${campos.name}
+            ${campo.name}
         </h3>
         <p>
-            ${campos.description}
+            ${campo.description}
         </p>
         <hr>
         <p>
-            <a href="/campo/${campos.id}/edit">Edit campo</a>
+            <a href="/campo/${campo.id}/edit">Edit campo</a>
         </p>
     </div>
 </@layout.header>
