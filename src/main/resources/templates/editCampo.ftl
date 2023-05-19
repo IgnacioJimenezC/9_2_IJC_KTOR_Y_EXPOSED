@@ -14,9 +14,9 @@
             <p>
                 Order: <input type="number" name="order">
             </p>
-            <select name="seccionID">
-                <#list artiCULOS as artiCULO>
-                    <option value="${artiCULO.id}">${artiCULO.title}</option>
+            <select name="sectionID">
+                <#list articulos as articulo>
+                    <option value="${articulo.id}">${articulo.title}</option>
                 </#list>
             </select>
             <p>
