@@ -1,4 +1,5 @@
 <#-- @ftlvariable name="campo" type="com.example.Entities.Campos" -->
+<#-- @ftlvariable name="articulos" type="kotlin.collections.List<com.example.Entities.Articles>" -->
 <#import "_layout.ftl" as layout />
 <@layout.header>
     <div>
@@ -13,9 +14,11 @@
             <p>
                 Order: <input type="number" name="order">
             </p>
-            <p>
-                SectionID: <input type="text" name="sectionID">
-            </p>
+            <select name="seccionID">
+                <#list artiCULOS as artiCULO>
+                    <option value="${artiCULO.id}">${artiCULO.title}</option>
+                </#list>
+            </select>
             <p>
                 <input type="submit" name="_action" value="update">
             </p>

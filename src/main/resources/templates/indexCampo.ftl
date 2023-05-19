@@ -1,7 +1,7 @@
-<#-- @ftlvariable name="dolor" type="kotlin.collections.List<com.example.Entities.Campos>" -->
+<#-- @ftlvariable name="campos" type="kotlin.collections.List<com.example.Entities.Campos>" -->
 <#import "_layout.ftl" as layout />
 <@layout.header>
-    <#list dolor?reverse as campo>
+    <#list campos?reverse as campo>
         <div>
             <h3>
                 <a href="/campo/${campo.id}">${campo.name}</a>

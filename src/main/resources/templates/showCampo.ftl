@@ -12,7 +12,7 @@
             Orden: ${campo.order}
         </p>
         <p>
-            SectionID: ${campo.sectionId}
+            SectionID:${campo.sectionId}
         </p>
         <hr>
         <p>
