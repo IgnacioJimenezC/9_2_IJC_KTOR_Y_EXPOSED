@@ -69,7 +69,34 @@ fun Application.configureRouting() {
                 val order = formParameters.getOrFail("order").toInt()
                 val campo = daoCampos.anadirCampo(name, description,sectionID,order)
                 call.respondRedirect("/campo/${campo?.id}")
+                }
+            get("{id}") {
+                val id = call.parameters.getOrFail<Int>("id").toInt()
+                call.respond(FreeMarkerContent("showCampo.ftl", mapOf("dolor" to daoCampos.obtenerCampo(id))))
             }
+            get("{id}/edit") {
+                val id = call.parameters.getOrFail<Int>("id").toInt()
+                call.respond(FreeMarkerContent("editCampo.ftl", mapOf("dolor" to daoCampos.obtenerCampo(id))))
+            }
+            post("{id}") {
+                val id = call.parameters.getOrFail<Int>("id").toInt()
+                val formParameters = call.receiveParameters()
+                when (formParameters.getOrFail("_action")) {
+                    "update" -> {
+                        val name = formParameters.getOrFail("name")
+                        val description = formParameters.getOrFail("description")
+                        val sectionID = formParameters.getOrFail("sectionID")
+                        val order = formParameters.getOrFail("order").toInt()
+                        daoCampos.editarCampo(id, name, description,sectionID,order)
+                        call.respondRedirect("/campo/$id")
+                    }
+                    "delete" -> {
+                        daoCampos.borrarCampo(id)
+                        call.respondRedirect("/campo")
+                    }
+                }
+            }
+
             }
         }
     }
