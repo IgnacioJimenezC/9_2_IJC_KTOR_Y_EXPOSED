@@ -11,7 +11,7 @@
                 <textarea name="description"></textarea><br>
             </p>
 
-            <select name="seccionID">
+            <select name="sectionID">
                 <#list artiCULOS as artiCULO>
                     <option value="${artiCULO.id}">${artiCULO.title}</option>
                 </#list>

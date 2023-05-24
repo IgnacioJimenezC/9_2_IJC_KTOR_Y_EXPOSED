@@ -3,6 +3,8 @@ package com.example.DAO
 import com.example.Entities.Article
 import com.example.Entities.Articles
 import com.example.DAO.DatabaseFactory.dbQuery
+import com.example.Entities.Campo
+import com.example.Entities.Campos
 import kotlinx.coroutines.runBlocking
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
@@ -25,6 +27,7 @@ class DAOFacadeImpl : DAOArticle {
             .map(::resultRowToArticle)
             .singleOrNull()
     }
+
 
     override suspend fun addNewArticle(title: String, body: String): Article? = dbQuery {
         val insertStatement = Articles.insert {

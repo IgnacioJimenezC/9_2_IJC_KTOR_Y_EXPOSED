@@ -38,6 +38,11 @@ class DAOCamposImpl : DAOCampos {
         insertStatement.resultedValues?.singleOrNull()?.let(::resultRowToCampo)
     }
 
+    suspend fun  getCamposAssociated(idArticle:Int):List<Campo> = dbQuery {
+        Campos.select(Campos.sectionId eq idArticle)
+                
+    }
+
     override suspend fun editarCampo(id: Int,nombreCampo:String,descripcion:String,sectionID:Int,order:Int): Boolean = dbQuery {
         Campos.update({ Campos.id eq id }) {
             it[Campos.name] = nombreCampo
