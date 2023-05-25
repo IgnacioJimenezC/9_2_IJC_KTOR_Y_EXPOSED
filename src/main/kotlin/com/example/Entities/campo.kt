@@ -6,7 +6,9 @@ object Campos:Table(){
     val id = integer("id").autoIncrement()
     val name = varchar("name",1024)
     val description = varchar("description",256)
-    val sectionId = integer("sectionID").references(Articles.id)
+    val sectionId = integer("sectionID").references(Articles.id,
+        onDelete = ReferenceOption.CASCADE,
+        onUpdate = ReferenceOption.CASCADE)
     val order = integer("order")
     override val primaryKey = PrimaryKey(id)
 }
