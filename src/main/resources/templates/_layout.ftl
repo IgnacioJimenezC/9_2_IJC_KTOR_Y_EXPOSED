@@ -5,7 +5,7 @@
         <title>Kotlin Journal</title>
     </head>
     <body style="text-align: center; font-family: sans-serif">
-    <img src="../files/static/flor_de_lis.jpg">
+    <img src="/files/static/flor_de_lis.jpg">
     <h1>Kotlin Ktor Journal </h1>
     <p><i>Powered by Ktor & Freemarker!</i></p>
     <hr>
