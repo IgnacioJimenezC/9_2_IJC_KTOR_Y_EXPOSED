@@ -11,4 +11,3 @@ fun Application.configureTemplating() {
         outputFormat = HTMLOutputFormat.INSTANCE
     }
 }
-data class IndexData(val items: List<Int>)

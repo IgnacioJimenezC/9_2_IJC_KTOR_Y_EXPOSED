@@ -14,7 +14,7 @@ import io.ktor.server.util.*
 fun Application.configureRouting() {
     routing {
          static("/static"){
-             resources("files")
+             resources("static/files")
          }
         get("/") {
             call.respondRedirect("articles")

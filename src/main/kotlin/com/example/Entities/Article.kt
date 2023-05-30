@@ -1,10 +1,8 @@
 package com.example.Entities
 
-
 import org.jetbrains.exposed.sql.*
 
 data class Article(val id: Int, val title: String, val body: String)
-
 object Articles : Table() {
     val id = integer("id").autoIncrement()
     val title = varchar("title", 128)
